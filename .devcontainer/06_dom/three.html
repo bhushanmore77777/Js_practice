@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141;color: #fff;">
+    <div class="parent">
+               <div class="day">Monday</div>
+               <div class="day">Tuesday</div>
+               <div class="day">Wednesday</div>
+               <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent=document.querySelector(".parent")
+    console.log(parent)
+    console.log(parent.children)
+    console.log(parent.children[1].innerHTML)
+    //now loop
+    for(let i=0;i<parent.children.length;i++)
+    {
+        console.log(parent.children[i].innerHTML)
+    }
+    //Monday
+    //Tuesday
+    //Wednesday
+    //Thursday
+    //we can chnage color of children 
+    parent.children[1].style.color="orange"//Tuesday->orange
+    console.log(parent.firstElementChild)//Monday
+    console.log(parent.lastElementChild)//Thursday
+    //other way to get first element
+    const dayOne=document.querySelector(".day")
+    console.log(dayOne)//<div class="day">Monday</div>
+    //children to parent
+    console.log(dayOne.parentElement)//parent
+    console.log(dayOne.nextElementSibling)//Tuesday
+    console.log("Nodes:",parent.childNodes)
+    //we get 9 element because 4+we are writing parent then line break like +5
+    
+
+</script>
+</html> 
+<!-- 1.const parent=document.querySelector(".parent")
+  console.log(parent)
+-><div class="parent">
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thursday</div>
+</div>
+
+2.console.log(parent.children)
+->HTMLCollection(4) [div.day, div.day, div.day, div.day]
+0
+: 
+div.day
+1
+: 
+div.day
+2
+: 
+div.day
+3
+: 
+div.day
+length
+: 
+4
+[[Prototype]]
+: 
+HTMLCollection
+
+3.console.log(parent.children[1].innerHTML)
+->Tuesday 
+-->

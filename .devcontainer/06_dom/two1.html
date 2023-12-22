@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+<!-- How To Add Content?
+1.To get the content=>1.title.textContent->o/p->'DOM learning on Chai aur code test text'
+                        -in textContent we get all text content although it is hidden
+                      2.title.innerText->o/p->'DOM learning on Chai aur code'
+                        -in innerText we  get only that text which is visible
+                      3.title.innerHTML->o/p->'DOM learning on Chai aur code <span style="display: none;">test text</span>'
+                        -in this we will see all the text which is hidden also but with tag
+document.getElementById('title')=document.getElementsByClassName("heading") same  -->
+
+<!-- 1.document.querySelector('h2')=>-this will give first h2 heading of document
+2.To get id=>document.querySelector("#title")->-here title is id name
+3.To get className=>document.querySelector(".heading")->-here heading is class classname
+4.To get input type password=>document.querySelector('input[type="passsword"]')
+5.How To Deal With List?
+    ul->li->ol
+    1.How to get ul from document?
+    ->document.querySelector("ul")
+    2.How to get list from unordered list?
+    ->now we have to get ul store that in variable
+      step1=document.querySelector("ul")
+      step2=const myul=document.querySelector("ul")
+      step3=myul.querySelector("li")
+    3.How to change the background-color of li?
+    ->1.const turnOrange=document.querySelector("li")
+      2.turnOrange.style.backgroundColor="orange"
+    4.To change li one to four 
+      turnOrange.innerText="four"
+    5.To get all li
+    ->document.querySelectorAll("li")
+      -in this we will get collection/NodeList not array 
+      -because when we check prototype we see only forEach()
+      -in array we by default get forEach() and map
+      -now if we have to change colour of all li
+      const tempList=document.querySelectorAll("li")
+      tempList.style.color="green"
+      but this will give error because this is not array now
+      then how?
+      ->tempList[0].style.color="aqua"
+  *querySelector=>-gives first element
+  *querySelectorAll=>-gives NodeList 
+  6.How to use forEach() loop for NodeList?
+  ->-we are changing backgroundColor of all li
+    1.const tempList=document.querySelectorAll("li")
+    2.tempList.forEach((l)=>{
+        l.style.backgroundColor="aqua"
+    })
+    -for enter  in console=shift+enter
+  ****.getElementsByClassName****
+  -document.getElementsByClassName("list-item") this will give HTMLCollection which is diffrent from 
+   NodeList
+  -How to get from?
+  ->-we are changing colour of li
+    -1.get li
+     ->const tempClassList=document.getElementsByClassName("list-item")
+     2.convert HTMLCollection to array
+     ->const myConvertedArray=Array.from(tempClassList)
+     3.forEach
+     ->myConvertedArray.forEach(function(li) {
+        li.style.color="orange"
+    }) -->
