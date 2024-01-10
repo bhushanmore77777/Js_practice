@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    //If we have to add Python after javascript then use this function
+    function addLang(langName){
+        const li=document.createElement('li');
+        li.innerHTML=`${langName}`//if we used this then whole element will be traversed
+        document.querySelector('.language').appendChild(li)
+    }
+    addLang("python")
+    //optimized way
+    function addOptiLanguage(langName){
+        const li=document.createElement('li')
+          li.appendChild(document.createTextNode(langName))
+          document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("golang")
+
+    //If we have to edit 
+    //1.We have select that element
+    const secondLang=document.querySelector("li:nth-child(2)")
+    //nth-child(2)---->will select 2 value
+    //2.We have to create element
+    const newLi=document.createElement('li')
+    //3.We are putting new element mojo in the place of python
+    newLi.textContent="Mojo"
+    //4.secondLang will be replace with mojo
+    secondLang.replaceWith(newLi)
+
+    //We are replacing Javascript with Typescript
+    const firstLang=document.querySelector("li")
+    const newLi1=document.createElement('li')
+    newLi1.textContent="TypeScript"
+    firstLang.replaceWith(newLi1)
+    //another way
+    // const firstLang1=document.querySelector("li:first-child")
+    // firstLang1.outerHTML= '<li>Type</li>'
+
+    //How to remove
+     const lastLang=document.querySelector("li:last-child")
+     lastLang.remove()
+</script>
+</html>
