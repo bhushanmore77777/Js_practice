@@ -1,0 +1,97 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //onclick will give only onclick functionality
+    //eventListener will give onclick and propagation 
+    //first way
+    // document.getElementById('owl').onclick=function(){
+    //     alert("owl")
+    // }
+
+    //another way
+    document.getElementById('owl').addEventListener('click',function(e){
+        
+    },false)
+    //why use false?
+    //some function cannot work if we do not write false although default is false
+    //attachEvent()
+    //jquery
+    //****Event Propagation****
+    //Having context=1.Event Bubbling
+    //               2.Event Capturing
+     //1.Event Bubbling=>
+    //  document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul")
+    //  },false)
+     //above o/p will be clicked inside the ul
+
+    //  document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log("owl clicked")
+    //  },false)
+     //o/p=owl clicked
+     //    clicked inside the ul
+
+     //so Event Bubbling occur from bottom to top
+
+     //2.Event Capturing=>
+     //-In this top to bottom
+    //  document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul")
+    //  },true)
+    //  document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log("owl clicked")
+    //  },true)
+     //o/p=clicked inside the ul
+     //    owl clicked
+
+     //How to stop propagation?
+    //  document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log("owl clicked")
+    //     e.stopPropagation()
+    //  },false)
+    // //in above code bubbling will not happen so o/p will be owl clicked
+    
+    // //If we have to prevent to open google
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("google clicked")
+    // },false)
+
+   //****Now We are trying to click on the image and that image will be remove
+    // document.querySelector('#images').addEventListener('click',function(e){
+    //   console.log(e.target.parentNode)
+    //   //above e->event,target->targetting on this image,parentNode->we get li as parentNode
+    //  let removeIt= e.target.parentNode
+    //  removeIt.remove()
+    // },false)
+    //in above code if we clicked on outside the image then li having ul parent so all images will remove
+    //so to overcome this
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        if(e.target.tagName==='IMG')
+        {
+            let removeIt=e.target.parentNode
+            removeIt.remove()
+        }
+    })
+    
+</script>
