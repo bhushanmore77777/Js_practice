@@ -1,0 +1,34 @@
+<!-- Javascript=>-Synchronous(Sequencially code will be executed)
+                 -Single Threaded
+above default javascript behaviour
+           -->
+<!-- Blocking Code=>-Block the flow of the program
+               -Read the file sync
+Non-Blocking Code=>-Does not block execution
+                   -Read the file async -->
+<!-- Task Queue makes js fast and asynchronous -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Chai aur js</h1> 
+   <button id="start">Start</button>
+   <button id="stop">Stop</button>
+</body>
+<script>
+//   setInterval(function(){
+//      console.log("BHUSHAN",Date.now())
+//   },1000)
+//   //setInterval()will print this after 1 sec continuously
+const sayDate=function(){
+    console.log("BHUSHAN",Date.now())
+}
+const intervalId=setInterval(sayDate,1000)
+clearInterval(intervalId)
+</script>
+</html>
