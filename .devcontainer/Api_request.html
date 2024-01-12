@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //When we send Ajax(Asynchronous Javascript Xml)request then
+        //we make object by xmlhttprequest
+        const requestUrl='https://api.github.com/users/hiteshchoudhary'
+        const xhr=new XMLHttpRequest()
+        //open send request
+        xhr.open('GET',requestUrl)
+        //for continuously monitoring
+        xhr.onreadystatechange=function(){
+            console.log(xhr.readyState)
+            if(xhr.readyState===4)
+            {
+                const data=JSON.parse(this.responseText)
+                console.log(data.followers)
+            }
+        }
+        xhr.send()
+        //most of the time response from object is in string form
+
+    </script>
+</body>
+</html>
